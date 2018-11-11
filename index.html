@@ -53,8 +53,20 @@
     <script type="text/javascript">
         // VARIABLES
         // ============================================================================================
-        const movieList = ['Gladiator', 'Halloween', 'Aliens', 'Spaceballs', 'Avatar', 'Casablanca', 'Deadpool'];
+        
+        const movieList = ['Gladiator', 'Halloween', 'Aliens', 'Spaceballs', 'Avatar', 'Casablanca', 'Deadpool', 'Gladiator'];
+        // Maybe I can list each movie as its own array?
+        const gladiator = ['g', 'l', 'a', 'd', 'i', 'a', 't', 'o', 'r'];
 
+
+        // FUNCTIONS
+        // ============================================================================================
+            // This loop searches an array and returns the index value of any/all matches
+        for (i=0; i <movieList.length; i++) {
+            if (movieList[i] == 'Gladiator') {
+                console.log(i + '<br>');
+            }
+        }
     </script>
 
 

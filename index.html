@@ -9,7 +9,22 @@
     <link rel="shortcut icon" href="./assets/images/favicon/favicon.ico"/>
 </head>
 <body>
+    <header class="container-fluid">
+        <div class="container bg-light border border-secondary sticky-top">
+            <h1 class="h1">Guess That Movie!</h1>
+        </div>
+    </header>
 
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 border border-secondary">
+                <h2>Press any key to get started!</h2>
+                <h3>Wins: <span id="wins"></span></h3>
+                <h3>Guesses Remaining: <span id="guesses"></span></h3>
+                <h3>Letters Guessed: <span id="wrong-letters"></span></h3>
+            </div>
+        </div>
+    </section>
     <!-- Use key events to listen for the letters that your players will type.
     Display the following on the page:
     Press any key to get started!
@@ -35,23 +50,10 @@
     
     Remember: global variables, then objects, then calls. -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script type="text/javascript">
-
+        // VARIABLES
+        // ============================================================================================
+        const movieList = ['Gladiator', 'Halloween', 'Aliens', 'Spaceballs', 'Avatar', 'Casablanca', 'Deadpool'];
 
     </script>
 

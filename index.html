@@ -19,7 +19,9 @@
         <div class="row">
             <div class="col-md-12 border border-secondary">
                 <h2>Press any key to get started!</h2>
+                <h2> <span id="current-guess"></span></h2>
                 <h3>Wins: <span id="wins"></span></h3>
+                <h3>Losses: <span id="losses"></span></h3>
                 <h3>Guesses Remaining: <span id="guesses"></span></h3>
                 <h3>Letters Guessed: <span id="wrong-letters"></span></h3>
             </div>
@@ -54,7 +56,19 @@
         // VARIABLES
         // ============================================================================================
         
-        const movieList = ['Gladiator', 'Halloween', 'Aliens', 'Spaceballs', 'Avatar', 'Casablanca', 'Deadpool', 'Gladiator'];
+        // Variables that input text to HTML IDs
+        const currentGuessText = document.getElementById('current-guess');
+        const winsText = document.getElementById('wins');
+        const lossesText = document.getElementById('losses');
+        const guessRemainingText = document.getElementById('guesses');
+        const lettersGuessedText = document.getElementById('wrong-letters')
+
+        // Global variables for keeping score
+        const wins = 0;
+        const losses = 0;
+
+        
+        const movieList = ['Gladiator', 'Halloween', 'Aliens', 'Spaceballs', 'Avatar', 'Casablanca', 'Deadpool'];
         // Maybe I can list each movie as its own array?
         const gladiator = ['g', 'l', 'a', 'd', 'i', 'a', 't', 'o', 'r'];
 
@@ -64,7 +78,13 @@
             // This loop searches an array and returns the index value of any/all matches
         for (i=0; i <movieList.length; i++) {
             if (movieList[i] == 'Gladiator') {
-                console.log(i + '<br>');
+                console.log(i);
+            }
+        }
+
+        for (i=0; i <gladiator.length; i++) {
+            if (gladiator[i] == 'a') {
+                console.log(i);
             }
         }
     </script>

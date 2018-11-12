@@ -75,6 +75,13 @@
 
         // FUNCTIONS
         // ============================================================================================
+            // This chooses a random number from an array
+        let randomNum = Math.floor(Math.random() * movieList.length);
+            // This converts the random array value to its word
+        let currentWord = movieList[randomNum];
+        
+            
+            
             // This loop searches an array and returns the index value of any/all matches
         for (i=0; i <movieList.length; i++) {
             if (movieList[i] == 'Gladiator') {

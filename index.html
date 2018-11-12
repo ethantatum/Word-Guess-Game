@@ -64,9 +64,11 @@
         const lettersGuessedText = document.getElementById('wrong-letters')
 
         // Global variables for keeping score
-        const wins = 0;
-        const losses = 0;
+        let wins = 0;
+        let losses = 0;
 
+        // Creates an empty array for holding underscores
+        let underScore = [];
         
         const movieList = ['Gladiator', 'Halloween', 'Aliens', 'Spaceballs', 'Avatar', 'Casablanca', 'Deadpool'];
         // Maybe I can list each movie as its own array?
@@ -77,21 +79,41 @@
         // ============================================================================================
             // This chooses a random number from an array
         let randomNum = Math.floor(Math.random() * movieList.length);
+
             // This converts the random array value to its word
         let currentWord = movieList[randomNum];
         
+            // This generates a length of underscores based on the length of the chosen word
+        let genUnder = function() {
+            for(i = 0; i < currentWord.length; i++) {
+                underScore.push('_');
+            }
+            return underScore;
+        }
+        
+            // This captures the key a user presses. We need one event to start the game when any key is pressed down
+        document.onkeydown = function(eventStart) {
+            let gameStart = eventStart.key;
             
+        }
+
+            // This captures the key a user presses (keyCode value). We need one event to capture the letters guessed for each word (when unpressed)
+        document.onkeyup = function(eventGuess) {
+            let userCode = eventGuess.keyCode;
+            let userGuess = String.fromCharCode(userCode); //Right now, the letter is converted in uppercase
+            
+        }
             
             // This loop searches an array and returns the index value of any/all matches
-        for (i=0; i <movieList.length; i++) {
-            if (movieList[i] == 'Gladiator') {
-                console.log(i);
+        for (j=0; j <movieList.length; j++) {
+            if (movieList[j] == 'Gladiator') {
+                console.log(j);
             }
         }
 
-        for (i=0; i <gladiator.length; i++) {
-            if (gladiator[i] == 'a') {
-                console.log(i);
+        for (k=0; k <gladiator.length; k++) {
+            if (gladiator[k] == 'a') {
+                console.log(k);
             }
         }
     </script>

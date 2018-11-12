@@ -82,7 +82,8 @@
 
             // This converts the random array value to its word
         let currentWord = movieList[randomNum];
-        
+        console.log(currentWord);
+
             // This generates a length of underscores based on the length of the chosen word
         let genUnder = function() {
             for(i = 0; i < currentWord.length; i++) {
@@ -101,19 +102,21 @@
         document.onkeyup = function(eventGuess) {
             let userCode = eventGuess.keyCode;
             let userGuess = String.fromCharCode(userCode); //Right now, the letter is converted in uppercase
-            
+            if(currentWord.indexOf(userGuess) > -1) {
+                console.log(true); //Other letters are showing as false because of uppercase
+            }
         }
             
             // This loop searches an array and returns the index value of any/all matches
         for (j=0; j <movieList.length; j++) {
             if (movieList[j] == 'Gladiator') {
-                console.log(j);
+                // console.log(j);
             }
         }
 
         for (k=0; k <gladiator.length; k++) {
             if (gladiator[k] == 'a') {
-                console.log(k);
+                // console.log(k);
             }
         }
     </script>

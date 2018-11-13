@@ -61,7 +61,9 @@
         const winsText = document.getElementById('wins');
         const lossesText = document.getElementById('losses');
         const guessRemainingText = document.getElementById('guesses');
-        const lettersGuessedText = document.getElementById('wrong-letters')
+        const lettersGuessedText = document.getElementById('wrong-letters');
+
+        // let underScoreText = document.getElementById('current-guess');
 
         const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', 'CASABLANCA', 'DEADPOOL', 'PREDATOR', 'GHOSTBUSTERS', 'INCEPTION'];
         const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM']
@@ -83,10 +85,10 @@
         // FUNCTIONS
         // ============================================================================================
             // This chooses a random number from an array
-        let randomNum = Math.floor(Math.random() * movieList.length);
+        let randomNum = Math.floor(Math.random() * singleMovie.length);
 
             // This converts the random array value to its word
-        let currentWord = movieList[randomNum];
+        let currentWord = singleMovie[randomNum];
         console.log(currentWord);
 
             // This generates a length of underscores based on the length of the chosen word
@@ -108,14 +110,25 @@
         document.onkeyup = function(eventGuess) {
             let userGuess = String.fromCharCode(eventGuess.keyCode);
             if(currentWord.indexOf(userGuess) > -1) {
-                        rightGuesses.push(userGuess);
-                        underScore[currentWord.indexOf(userGuess)] = userGuess;
-                        console.log(underScore);
-                    } else {
-                        wrongGuesses.push(userGuess);
-                        console.log(wrongGuesses);
-                    }
+                rightGuesses.push(userGuess);
+                underScore[currentWord.indexOf(userGuess)] = userGuess;
+                console.log(underScore);
+                if(underScore.join("") == currentWord) {
+                    alert('You win!')
                 }
+            } 
+            else {
+                wrongGuesses.push(userGuess);
+                console.log(wrongGuesses);
+                // if(wrongGuesses = 8) {
+                //     losses++;
+                // }
+            }
+            currentGuessText.textContent = underScore.join(' ');
+            lettersGuessedText.textContent = wrongGuesses.join(' ');
+            lossesText.textContent = losses;
+
+        }
             
         // Above code matches userGuess to currentWord and updates underScore with userGuess - but only in the first instance
         // Need to match ALL instances of userGuess to currentWord and update underScore with userGuess in all applicable index locations

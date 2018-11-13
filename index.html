@@ -64,6 +64,7 @@
         const lettersGuessedText = document.getElementById('wrong-letters')
 
         const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', 'CASABLANCA', 'DEADPOOL', 'PREDATOR', 'GHOSTBUSTERS', 'INCEPTION'];
+        const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM']
         // Maybe I can list each movie as its own array?
         const gladiator = ['g', 'l', 'a', 'd', 'i', 'a', 't', 'o', 'r'];
         
@@ -95,35 +96,35 @@
             }
             return underScore;
         }
-        
+        console.log(genUnder());
             // This captures the key a user presses. We need one event to start the game when any key is pressed down
-        document.onkeydown = function(eventStart) {
-            let gameStart = eventStart.key;
+        // document.onkeydown = function(eventStart) {
+        //     let gameStart = eventStart.key;
             
-        }
+        // }
 
             // This captures the key a user presses (keyCode value). We need one event to capture the letters guessed for each word (when unpressed)
                 // NOTE: Apparently, 'onkeyup' captures uppercase keyCode values, 'onkeypress' captures lowercase
         document.onkeyup = function(eventGuess) {
-            let userCode = eventGuess.keyCode;
-            let userGuess = String.fromCharCode(userCode);
+            let userGuess = String.fromCharCode(eventGuess.keyCode);
             if(currentWord.indexOf(userGuess) > -1) {
-                for (j=0; j < currentWord.length; j++) {
-                    if (currentWord[j] === userGuess) {
-                    //     rightGuesses.push(userGuess);
-                    // } else {
-                    //     wrongGuesses.push(userGuess);
+                        rightGuesses.push(userGuess);
+                        underScore[currentWord.indexOf(userGuess)] = userGuess;
+                        console.log(underScore);
+                    } else {
+                        wrongGuesses.push(userGuess);
+                        console.log(wrongGuesses);
                     }
                 }
-            }
-        }
+            
+        
             
             // This loop searches an array and returns the index value of any/all matches
-        for (k=0; k <gladiator.length; k++) {
-            if (gladiator[k] == 'a') {
-                // console.log(k);
-            }
-        }
+        // for (k=0; k <gladiator.length; k++) {
+        //     if (gladiator[k] == 'a') {
+        //         // console.log(k);
+        //     }
+        // }
     </script>
 
 

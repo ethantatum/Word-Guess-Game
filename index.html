@@ -120,6 +120,13 @@
             else {
                 wrongGuesses.push(userGuess);
                 console.log(wrongGuesses);
+                // Trying to figure out how to have total missed guesses trigger a loss
+                let lossCount = function() {
+                    for(k=0; k < wrongGuesses.length; k++) {
+                    losses++;
+                    console.log(losses);
+                }
+            }
                 // if(wrongGuesses = 8) {
                 //     losses++;
                 // }

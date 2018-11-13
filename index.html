@@ -63,16 +63,20 @@
         const guessRemainingText = document.getElementById('guesses');
         const lettersGuessedText = document.getElementById('wrong-letters')
 
+        const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', 'CASABLANCA', 'DEADPOOL', 'PREDATOR', 'GHOSTBUSTERS', 'INCEPTION'];
+        // Maybe I can list each movie as its own array?
+        const gladiator = ['g', 'l', 'a', 'd', 'i', 'a', 't', 'o', 'r'];
+        
         // Global variables for keeping score
         let wins = 0;
         let losses = 0;
+        let remaining = 9;
 
         // Creates an empty array for holding underscores
         let underScore = [];
+        let rightGuesses = [];
+        let wrongGuesses = [];
         
-        const movieList = ['Gladiator', 'Halloween', 'Aliens', 'Spaceballs', 'Avatar', 'Casablanca', 'Deadpool'];
-        // Maybe I can list each movie as its own array?
-        const gladiator = ['g', 'l', 'a', 'd', 'i', 'a', 't', 'o', 'r'];
 
 
         // FUNCTIONS
@@ -99,21 +103,22 @@
         }
 
             // This captures the key a user presses (keyCode value). We need one event to capture the letters guessed for each word (when unpressed)
+                // NOTE: Apparently, 'onkeyup' captures uppercase keyCode values, 'onkeypress' captures lowercase
         document.onkeyup = function(eventGuess) {
             let userCode = eventGuess.keyCode;
-            let userGuess = String.fromCharCode(userCode); //Right now, the letter is converted in uppercase
+            let userGuess = String.fromCharCode(userCode);
             if(currentWord.indexOf(userGuess) > -1) {
-                console.log(true); //Other letters are showing as false because of uppercase
+                for (j=0; j < currentWord.length; j++) {
+                    if (currentWord[j] === userGuess) {
+                    //     rightGuesses.push(userGuess);
+                    // } else {
+                    //     wrongGuesses.push(userGuess);
+                    }
+                }
             }
         }
             
             // This loop searches an array and returns the index value of any/all matches
-        for (j=0; j <movieList.length; j++) {
-            if (movieList[j] == 'Gladiator') {
-                // console.log(j);
-            }
-        }
-
         for (k=0; k <gladiator.length; k++) {
             if (gladiator[k] == 'a') {
                 // console.log(k);

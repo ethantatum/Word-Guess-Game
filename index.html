@@ -98,7 +98,7 @@
             }
             return underScore;
         }
-        console.log(genUnder());
+        currentGuessText.textContent = genUnder().join(' ');
             // This captures the key a user presses. We need one event to start the game when any key is pressed down
         // document.onkeydown = function(eventStart) {
         //     let gameStart = eventStart.key;
@@ -114,28 +114,39 @@
                 underScore[currentWord.indexOf(userGuess)] = userGuess;
                 console.log(underScore);
                 if(underScore.join("") == currentWord) {
-                    alert('You win!')
+                    alert('You win!');
                 }
             } 
             else {
                 wrongGuesses.push(userGuess);
+                remaining--;
                 console.log(wrongGuesses);
+            }
+
+            if(remaining === 0) {
+                alert('You lose!');
+                losses++;
+            }
+                    // if(wrongGuesses.length = 8) {
+                    //     remaining--;
+                    // }
+
+
                 // Trying to figure out how to have total missed guesses trigger a loss
-                let lossCount = function() {
-                    for(k=0; k < wrongGuesses.length; k++) {
-                    losses++;
-                    console.log(losses);
-                }
-            }
-                // if(wrongGuesses = 8) {
+                // let lossCount = function() {
+                //     for(k=0; k < wrongGuesses.length; k++) {
                 //     losses++;
+                //     console.log(losses);
                 // }
-            }
+            
+            
             currentGuessText.textContent = underScore.join(' ');
             lettersGuessedText.textContent = wrongGuesses.join(' ');
+            winsText.textContent = wins;
             lossesText.textContent = losses;
+            guessRemainingText.textContent = remaining;
 
-        }
+        };
             
         // Above code matches userGuess to currentWord and updates underScore with userGuess - but only in the first instance
         // Need to match ALL instances of userGuess to currentWord and update underScore with userGuess in all applicable index locations

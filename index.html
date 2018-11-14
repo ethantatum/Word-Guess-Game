@@ -86,10 +86,13 @@
         // FUNCTIONS
         // ============================================================================================
             // This chooses a random number from an array
-        let randomNum = Math.floor(Math.random() * singleMovie.length);
+        // let randomNum = Math.floor(Math.random() * singleMovie.length);
 
             // This converts the random array value to its word
-        let currentWord = singleMovie[randomNum];
+        // let currentWord = singleMovie[randomNum];
+        // console.log(currentWord);
+
+        currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
         console.log(currentWord);
 
             // This generates a length of underscores based on the length of the chosen word

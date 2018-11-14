@@ -18,7 +18,7 @@
     <section class="container-fluid">
         <div class="row">
             <div class="col-md-12 border border-secondary">
-                <h2>Press any key to get started!</h2>
+                <h2><button id="new-game">Click here to get started!</button></h2>
                 <h2> <span id="current-guess"></span></h2>
                 <h3>Wins: <span id="wins"></span></h3>
                 <h3>Losses: <span id="losses"></span></h3>
@@ -57,6 +57,7 @@
         // ============================================================================================
         
         // Variables that input text to HTML IDs
+        const newGameButton = document.getElementById('new-game');
         const currentGuessText = document.getElementById('current-guess');
         const winsText = document.getElementById('wins');
         const lossesText = document.getElementById('losses');

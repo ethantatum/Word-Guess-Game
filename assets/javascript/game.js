@@ -44,12 +44,60 @@ function newGame() {
         return underScore;
     }
     // These write the game information to the HTML document
+        // QUESTION: Why isn't my currentGuess replaced with each new game?
     currentGuessText.textContent = genUnder().join(' ');
     guessRemainingText.textContent = remaining;
     lettersGuessedText.textContent = wrongGuesses.join(' ');
 }
 
+// Function to check if the user guess matches the current word
+document.onkeyup = function(eventGuess) {
+    if(gameRunning === true && wrongGuesses.indexOf(eventGuess) === -1) {
+        // Logic for playing the game
+        if(eventGuess.keyCode >= 65 && eventGuess.keyCode <= 90) {
+            let userGuess = String.fromCharCode(eventGuess.keyCode);
+            if(currentWord.indexOf(userGuess) > -1) {
+                rightGuesses.push(userGuess);
+                underScore[currentWord.indexOf(userGuess)] = userGuess;
+                console.log(underScore);
+                if(underScore.join("") == currentWord) {
+                    alert('You win!');
+                    wins++;
+                    newGame();
+                }
+            } 
+            else {
+                wrongGuesses.push(userGuess);
+                remaining--;
+            }
+        
+            if(remaining === 0) {
+                alert('You lose!');
+                losses++;
+                newGame();
+            }
+            currentGuessText.textContent = underScore.join(' ');
+            lettersGuessedText.textContent = wrongGuesses.join(' ');
+            winsText.textContent = wins;
+            lossesText.textContent = losses;
+            guessRemainingText.textContent = remaining;
+        }
+    }
+    else {
+        if(gameRunning === false) {
+            alert('Click the New Game button to play!');
+        } else {
+            alert('That letter has already been guessed - try a new one!');
+        }
+    }
+    
 
-
+}
 // Calls the newGame function when the button is clicked
 newGameButton.addEventListener('click', newGame);
+
+// Captures user key strokes to enter in 
+// document.onkeyup = function(eventGuess) {
+//     if(event.keyCode >= 65 && event.keyCode <= 90) {
+//         let userGuess = String.fromCharCode(eventGuess.keyCode);
+//     }

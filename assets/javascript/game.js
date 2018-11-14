@@ -13,7 +13,7 @@ const lettersGuessedText = document.getElementById('wrong-letters');
     // movieList contains words with  repeating letters
 const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', 'CASABLANCA', 'DEADPOOL', 'PREDATOR', 'GHOSTBUSTERS', 'INCEPTION'];
     // singleMovie contains words with no repeating letters
-const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM']
+const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM'];
 
 let wins = 0;
 let losses = 0;
@@ -37,15 +37,13 @@ function newGame() {
     // This creates a variable that pulls a random word from our word array
     currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
     // This generates a length of underscores based on the length of the chosen word
-    genUnder = function() {
         for(i = 0; i < currentWord.length; i++) {
             underScore.push('_');
         }
-        return underScore;
-    }
     // These write the game information to the HTML document
         // QUESTION: Why isn't my currentGuess replaced with each new game?
-    currentGuessText.textContent = genUnder().join(' ');
+
+    currentGuessText.textContent = underScore.join(' ');
     guessRemainingText.textContent = remaining;
     lettersGuessedText.textContent = wrongGuesses.join(' ');
 }
@@ -57,10 +55,10 @@ document.onkeyup = function(eventGuess) {
         if(eventGuess.keyCode >= 65 && eventGuess.keyCode <= 90) {
             let userGuess = String.fromCharCode(eventGuess.keyCode);
             if(currentWord.indexOf(userGuess) > -1) {
-                rightGuesses.push(userGuess);
+                // rightGuesses.push(userGuess);
                 underScore[currentWord.indexOf(userGuess)] = userGuess;
                 console.log(underScore);
-                if(underScore.join("") == currentWord) {
+                if(underScore.join("") === currentWord) {
                     alert('You win!');
                     wins++;
                     newGame();

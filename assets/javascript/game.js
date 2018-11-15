@@ -31,21 +31,24 @@ let wrongGuesses = [];
 function newGame() {
     gameRunning = true;
     remaining = 9;
-    underscore = [];
+    underScore = [];
     rightGuesses = [];
     wrongGuesses = [];
     // This creates a variable that pulls a random word from our word array
     currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
+    console.log(currentWord);
+    console.log(underScore);
     // This generates a length of underscores based on the length of the chosen word
         for(i = 0; i < currentWord.length; i++) {
             underScore.push('_');
-        }
+        }  
+        console.log(underScore) ;
     // These write the game information to the HTML document
         // QUESTION: Why isn't my currentGuess replaced with each new game?
 
-    currentGuessText.textContent = underScore.join(' ');
-    guessRemainingText.textContent = remaining;
-    lettersGuessedText.textContent = wrongGuesses.join(' ');
+    currentGuessText.innerHTML = underScore.join(' ');
+    guessRemainingText.innerHTML = remaining;
+    lettersGuessedText.innerHTML = wrongGuesses.join(' ');
 }
 
 // Function to check if the user guess matches the current word
@@ -59,7 +62,7 @@ document.onkeyup = function(eventGuess) {
                 underScore[currentWord.indexOf(userGuess)] = userGuess;
                 console.log(underScore);
                 if(underScore.join("") === currentWord) {
-                    alert('You win!');
+                    console.log('You win!');
                     wins++;
                     newGame();
                 }
@@ -74,11 +77,11 @@ document.onkeyup = function(eventGuess) {
                 losses++;
                 newGame();
             }
-            currentGuessText.textContent = underScore.join(' ');
-            lettersGuessedText.textContent = wrongGuesses.join(' ');
-            winsText.textContent = wins;
-            lossesText.textContent = losses;
-            guessRemainingText.textContent = remaining;
+            currentGuessText.innerHTML = underScore.join(' ');
+            lettersGuessedText.innerHTML = wrongGuesses.join(' ');
+            winsText.innerHTML = wins;
+            lossesText.innerHTML = losses;
+            guessRemainingText.innerHTML = remaining;
         }
     }
     else {

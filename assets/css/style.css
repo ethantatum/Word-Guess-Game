@@ -1,10 +1,12 @@
-
-
-
-
-{
-    aliens: 
+body {
+    font-family: 'Russo One', sans-serif;
 }
+
+#current-guess {
+    font-family: 'Special Elite', cursive;
+}
+
+
 
 
 

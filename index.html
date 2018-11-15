@@ -4,8 +4,10 @@
     <meta charset="utf-8" />
     <title>Movie Word Guess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="reset/css" href="./assets/css/reset.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One|Special+Elite">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href=".//assets/css/style.css"/> -->
+    <link rel="stylesheet" type="text/css" media="screen" href=".//assets/css/style.css"/>
     <link rel="shortcut icon" href="./assets/images/favicon/favicon.ico"/>
 </head>
 <body>
@@ -30,153 +32,10 @@
             </div>
         </div>
     </section>
-    <!-- Use key events to listen for the letters that your players will type.
-    Display the following on the page:
-    Press any key to get started!
-    Wins: (# of times user guessed the word correctly).
-    
-    If the word is madonna, display it like this when the game starts: _ _ _ _ _ _ _.
-    As the user guesses the correct letters, reveal them: m a d o _  _ a.
-    
-    Number of Guesses Remaining: (# of guesses remaining for the user).
-    Letters Already Guessed: (Letters the user has guessed, displayed like L Z Y H).
-    After the user wins/loses the game should automatically choose another word and make the user play it.
-    
-    Word Guess Game Bonuses
-    
-    Play a sound or song when the user guesses their word correctly, like in our demo.
-    Write some stylish CSS rules to make a design that fits your game's theme.
-    
-    HARD MODE: Organize your game code as an object, except for the key events to get the letter guessed. This will be a challenge if you haven't coded with JavaScript before, but we encourage anyone already familiar with the language to try this out.
-    Save your whole game and its properties in an object.
-    Save any of your game's functions as methods, and call them underneath your object declaration using event listeners.
-    Don't forget to place your global variables and functions above your object.
-    
-    
-    Remember: global variables, then objects, then calls. -->
+
 
     <script src="assets/javascript/game.js">
 
-
-        // // VARIABLES
-        // // ============================================================================================
-        
-        // // Variables that input text to HTML IDs
-        // const newGameButton = document.getElementById('new-game');
-        // const currentGuessText = document.getElementById('current-guess');
-        // const winsText = document.getElementById('wins');
-        // const lossesText = document.getElementById('losses');
-        // const guessRemainingText = document.getElementById('guesses');
-        // const lettersGuessedText = document.getElementById('wrong-letters');
-
-        // // let underScoreText = document.getElementById('current-guess');
-
-        // const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', 'CASABLANCA', 'DEADPOOL', 'PREDATOR', 'GHOSTBUSTERS', 'INCEPTION'];
-        // const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM']
-        // // Maybe I can list each movie as its own array?
-        // const gladiator = ['g', 'l', 'a', 'd', 'i', 'a', 't', 'o', 'r'];
-        
-        // // Global variables for keeping score
-        // let wins = 0;
-        // let losses = 0;
-        // let remaining = 9;
-
-        // // Creates an empty array for holding underscores
-        // let underScore = [];
-        // let rightGuesses = [];
-        // let wrongGuesses = [];
-        
-
-
-        // // FUNCTIONS
-        // // ============================================================================================
-        //     // This chooses a random number from an array
-        // // let randomNum = Math.floor(Math.random() * singleMovie.length);
-
-        //     // This converts the random array value to its word
-        // // let currentWord = singleMovie[randomNum];
-        // // console.log(currentWord);
-
-        // currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
-        // console.log(currentWord);
-
-        //     // This generates a length of underscores based on the length of the chosen word
-        // let genUnder = function() {
-        //     for(i = 0; i < currentWord.length; i++) {
-        //         underScore.push('_');
-        //     }
-        //     return underScore;
-        // }
-        // currentGuessText.textContent = genUnder().join(' ');
-        //     // This captures the key a user presses. We need one event to start the game when any key is pressed down
-        // // document.onkeydown = function(eventStart) {
-        // //     let gameStart = eventStart.key;
-            
-        // // }
-
-        //     // This captures the key a user presses (keyCode value). We need one event to capture the letters guessed for each word (when unpressed)
-        //         // NOTE: Apparently, 'onkeyup' captures uppercase keyCode values, 'onkeypress' captures lowercase
-        // document.onkeyup = function(eventGuess) {
-        //     let userGuess = String.fromCharCode(eventGuess.keyCode);
-        //     if(currentWord.indexOf(userGuess) > -1) {
-        //         rightGuesses.push(userGuess);
-        //         underScore[currentWord.indexOf(userGuess)] = userGuess;
-        //         console.log(underScore);
-        //         if(underScore.join("") == currentWord) {
-        //             alert('You win!');
-        //         }
-        //     } 
-        //     else {
-        //         wrongGuesses.push(userGuess);
-        //         remaining--;
-        //     }
-
-        //     if(remaining === 0) {
-        //         alert('You lose!');
-        //         losses++;
-        //     }
-        //             // if(wrongGuesses.length = 8) {
-        //             //     remaining--;
-        //             // }
-
-
-        //         // Trying to figure out how to have total missed guesses trigger a loss
-        //         // let lossCount = function() {
-        //         //     for(k=0; k < wrongGuesses.length; k++) {
-        //         //     losses++;
-        //         //     console.log(losses);
-        //         // }
-            
-            
-        //     currentGuessText.textContent = underScore.join(' ');
-        //     lettersGuessedText.textContent = wrongGuesses.join(' ');
-        //     winsText.textContent = wins;
-        //     lossesText.textContent = losses;
-        //     guessRemainingText.textContent = remaining;
-
-        // };
-            
-        // // Above code matches userGuess to currentWord and updates underScore with userGuess - but only in the first instance
-        // // Need to match ALL instances of userGuess to currentWord and update underScore with userGuess in all applicable index locations
-        // // document.onkeyup = function(eventGuess) {  
-        // //     let userGuess = String.fromCharCode(eventGuess.keyCode);
-        // //         if(currentWord.indexOf(userGuess) > -1) {
-        // //             for (j=0; j < currentWord.length; j++) {
-        // //                 if (currentWord[j] === userGuess) {
-        // //                     console.log(j);
-        // //                 }
-        // //             }
-        // //                     rightGuesses.push(j);
-        // //                     console.log(rightGuesses);
-
-        // //                     underScore[currentWord.indexOf(userGuess)] = userGuess;
-        // //                     console.log(underScore);
-        // //                 } else {
-        // //                     wrongGuesses.push(userGuess);
-        // //                     console.log(wrongGuesses);
-        // //                 }
-        // //             }
-            
     </script>
 
 

@@ -2,6 +2,22 @@ body {
     font-family: 'Russo One', sans-serif;
 }
 
+/* .curtains {
+    background-image: url('../images/curtains.jpg');
+    background-repeat: no-repeat;
+    background-size: 50%;
+} */
+
+h1 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+button {
+    text-align: center;
+    margin: 0 auto;
+}
+
 #current-guess {
     font-family: 'Special Elite', cursive;
 }

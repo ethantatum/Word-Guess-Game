@@ -19,7 +19,7 @@ button {
     width: 25%;
 }
 
-#current-guess {
+#current-guess, #wrong-letters {
     font-family: 'Special Elite', cursive;
 }
 
@@ -44,4 +44,14 @@ button {
 <iframe width="640" height="360" src="http://www.youtube.com/embed/1vcqMD5duiQ?rel=0&start=56&end=66&autoplay=1" frameborder="0" allowfullscreen></iframe>
     /* Scream */
 <iframe width="640" height="360" src="http://www.youtube.com/embed/LWxSBbBX4fs?rel=0&start=72&end=81&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    /* Fargo */
+<iframe width="640" height="360" src="http://www.youtube.com/embed/kPHbIyDTPHU?rel=0&start=9&end=22&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    /* Jaws */
+<iframe width="640" height="360" src="http://www.youtube.com/embed/2I91DJZKRxs?rel=0&start=15&end=36&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    /* Frozen */
+<iframe width="640" height="360" src="http://www.youtube.com/embed/rnEB2F_v_cE?rel=0&start=4&end=15&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    /* Gravity */
+<iframe width="640" height="360" src="http://www.youtube.com/embed/C4pcg7bXgmU?rel=0&start=44&end=60&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    /* Snatch */
+<iframe width="640" height="360" src="http://www.youtube.com/embed/tGDO-9hfaiI?rel=0&start=29&end=46&autoplay=1" frameborder="0" allowfullscreen></iframe>
 

@@ -13,7 +13,7 @@ const lettersGuessedText = document.getElementById('wrong-letters');
     // movieList contains words with  repeating letters
 const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', 'CASABLANCA', 'DEADPOOL', 'PREDATOR', 'GHOSTBUSTERS', 'INCEPTION'];
     // singleMovie contains words with no repeating letters
-const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM'];
+const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM', 'FARGO', 'JAWS', 'FROZEN', 'GRAVITY', 'SNATCH'];
 
 let wins = 0;
 let losses = 0;

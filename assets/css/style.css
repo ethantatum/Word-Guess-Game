@@ -16,6 +16,7 @@ h1 {
 button {
     text-align: center;
     margin: 0 auto;
+    width: 25%;
 }
 
 #current-guess {

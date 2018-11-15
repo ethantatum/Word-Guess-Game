@@ -101,6 +101,9 @@ newGameButton.addEventListener('click', newGame);
 // REMAINING QUESTIONS/ISSUES
 // =================================================================
 
+// Add instructions "Pick a letter" after New Game button is pressed (could be on same button)
+    // Once a letter is pressed, button is set to "Click to reset the game" (connect to gameRunning = true)
+
 // How can I allow for words with multiple letters that are the same?
 
 // How can I display the full correct word before the game resets?

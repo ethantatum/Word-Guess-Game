@@ -32,20 +32,16 @@ function newGame() {
     gameRunning = true;
     remaining = 9;
     underScore = [];
-    rightGuesses = [];
+    // As of now, I'm not using rightGuesses, but it might be a solution for words with repeating letters...
+    // rightGuesses = [];
     wrongGuesses = [];
     // This creates a variable that pulls a random word from our word array
     currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
-    console.log(currentWord);
-    console.log(underScore);
     // This generates a length of underscores based on the length of the chosen word
         for(i = 0; i < currentWord.length; i++) {
             underScore.push('_');
         }  
-        console.log(underScore) ;
     // These write the game information to the HTML document
-        // QUESTION: Why isn't my currentGuess replaced with each new game?
-
     currentGuessText.innerHTML = underScore.join(' ');
     guessRemainingText.innerHTML = remaining;
     lettersGuessedText.innerHTML = wrongGuesses.join(' ');
@@ -60,16 +56,21 @@ document.onkeyup = function(eventGuess) {
             if(currentWord.indexOf(userGuess) > -1) {
                 // rightGuesses.push(userGuess);
                 underScore[currentWord.indexOf(userGuess)] = userGuess;
-                console.log(underScore);
                 if(underScore.join("") === currentWord) {
-                    console.log('You win!');
+                    alert('You win!');
                     wins++;
                     newGame();
+                    // Below from JJ on how to activate video clips on win by using an object
+                    // var iframe =document.getElementById(iframe);
+                    // iframe.setAttribute('src', 'alsdkjfalsdkjf;asdlfkja;sd')
+                    // obj[currentWord];
                 }
             } 
             else {
+                if(wrongGuesses.indexOf(userGuess) === -1) {
                 wrongGuesses.push(userGuess);
                 remaining--;
+                    }
             }
         
             if(remaining === 0) {
@@ -97,8 +98,9 @@ document.onkeyup = function(eventGuess) {
 // Calls the newGame function when the button is clicked
 newGameButton.addEventListener('click', newGame);
 
-// Captures user key strokes to enter in 
-// document.onkeyup = function(eventGuess) {
-//     if(event.keyCode >= 65 && event.keyCode <= 90) {
-//         let userGuess = String.fromCharCode(eventGuess.keyCode);
-//     }
+// REMAINING QUESTIONS/ISSUES
+// =================================================================
+
+// How can I allow for words with multiple letters that are the same?
+
+// How can I display the full correct word before the game resets?

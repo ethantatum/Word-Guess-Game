@@ -23,6 +23,7 @@ let gameRunning = false;
 let underScore = [];
 let rightGuesses = [];
 let wrongGuesses = [];
+let usedWords = [];
 
 // FUNCTIONS
 // =============================================================================================
@@ -37,10 +38,14 @@ function newGame() {
     wrongGuesses = [];
     // This creates a variable that pulls a random word from our word array
     currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
+        if(usedWords.includes(currentWord)) {
+            alert('That word has already been used - click for another one!');
+        } else {
     // This generates a length of underscores based on the length of the chosen word
         for(i = 0; i < currentWord.length; i++) {
             underScore.push('_');
-        }  
+        }
+    }  
     // These write the game information to the HTML document
     currentGuessText.innerHTML = underScore.join(' ');
     guessRemainingText.innerHTML = remaining;
@@ -57,6 +62,8 @@ document.onkeyup = function(eventGuess) {
                 // rightGuesses.push(userGuess);
                 underScore[currentWord.indexOf(userGuess)] = userGuess;
                 if(underScore.join("") === currentWord) {
+                    singleMovie.splice( singleMovie.indexOf(currentWord), 1 );
+                    console.log(singleMovie);
                     alert('You win!');
                     wins++;
                     newGame();
@@ -100,6 +107,8 @@ newGameButton.addEventListener('click', newGame);
 
 // REMAINING QUESTIONS/ISSUES
 // =================================================================
+
+// Got words to repeat but now need to initialize a final winning screen after all words guessed (also need to clean up code around usedWord)
 
 // Add instructions "Pick a letter" after New Game button is pressed (could be on same button)
     // Once a letter is pressed, button is set to "Click to reset the game" (connect to gameRunning = true)

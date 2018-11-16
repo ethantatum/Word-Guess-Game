@@ -15,15 +15,29 @@ const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', '
     // singleMovie contains words with no repeating letters
 const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM', 'FARGO', 'JAWS', 'FROZEN', 'GRAVITY', 'SNATCH'];
 
+const iFrames = {
+    'ALIENS': <iframe width="640" height="360" src="http://www.youtube.com/embed/ILYdzvSICes?rel=0&start=165&end=172&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'VERTIGO': <iframe width="640" height="360" src="http://www.youtube.com/embed/GjPCk494e5Q?rel=0&start=65&end=71&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'PSYCHO': <iframe width="640" height="360" src="http://www.youtube.com/embed/0WtDmbr9xyY?rel=0&start=50&end=60&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'CASINO': <iframe width="640" height="360" src="http://www.youtube.com/embed/aIPmu6bYZOs?rel=0&start=5&end=12&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'ROCKY': <iframe width="640" height="360" src="http://www.youtube.com/embed/_YYmfM2TfUA?rel=0&start=135&end=145&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'HAMLET': <iframe width="640" height="360" src="http://www.youtube.com/embed/SjuZq-8PUw0?rel=0&start=22&end=31&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'LABYRINTH': <iframe width="640" height="360" src="http://www.youtube.com/embed/1vcqMD5duiQ?rel=0&start=56&end=66&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'SCREAM': <iframe width="640" height="360" src="http://www.youtube.com/embed/LWxSBbBX4fs?rel=0&start=72&end=81&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'FARGO': <iframe width="640" height="360" src="http://www.youtube.com/embed/kPHbIyDTPHU?rel=0&start=9&end=22&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'JAWS': <iframe width="640" height="360" src="http://www.youtube.com/embed/2I91DJZKRxs?rel=0&start=15&end=36&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'FROZEN': <iframe width="640" height="360" src="http://www.youtube.com/embed/rnEB2F_v_cE?rel=0&start=4&end=15&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'GRAVITY': <iframe width="640" height="360" src="http://www.youtube.com/embed/rnEB2F_v_cE?rel=0&start=4&end=15&autoplay=1" frameborder="0" allowfullscreen></iframe>
+    'SNATCH': <iframe width="640" height="360" src="http://www.youtube.com/embed/tGDO-9hfaiI?rel=0&start=29&end=46&autoplay=1" frameborder="0" allowfullscreen></iframe>
+};
+
 let wins = 0;
 let losses = 0;
 let remaining = 9;
 let gameRunning = false;
     // These three variables create empty arrays in which to push underscore placeholders, right guesses, and wrong guesses
 let underScore = [];
-let rightGuesses = [];
 let wrongGuesses = [];
-let usedWords = [];
 
 // FUNCTIONS
 // =============================================================================================
@@ -33,21 +47,13 @@ function newGame() {
     gameRunning = true;
     remaining = 9;
     underScore = [];
-    // As of now, I'm not using rightGuesses, but it might be a solution for words with repeating letters...
-    // rightGuesses = [];
     wrongGuesses = [];
     // This creates a variable that pulls a random word from our word array
     currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
-    indexWord = (singleMovie.indexOf(currentWord));
-    console.log(indexWord);
-        if(usedWords.includes(currentWord)) {
-            alert('That word has already been used - click for another one!');
-        } else {
     // This generates a length of underscores based on the length of the chosen word
         for(i = 0; i < currentWord.length; i++) {
             underScore.push('_');
-        }
-    }  
+        }  
     // These write the game information to the HTML document
     currentGuessText.innerHTML = underScore.join(' ');
     guessRemainingText.innerHTML = remaining;
@@ -61,7 +67,6 @@ document.onkeyup = function(eventGuess) {
         if(eventGuess.keyCode >= 65 && eventGuess.keyCode <= 90) {
             let userGuess = String.fromCharCode(eventGuess.keyCode);
             if(currentWord.indexOf(userGuess) > -1) {
-                // rightGuesses.push(userGuess);
                 underScore[currentWord.indexOf(userGuess)] = userGuess;
                 if(underScore.join("") === currentWord) {
                     singleMovie.splice( singleMovie.indexOf(currentWord), 1 );

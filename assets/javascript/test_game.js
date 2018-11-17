@@ -35,7 +35,7 @@ let wins = 0;
 let losses = 0;
 let remaining = 9;
 let gameRunning = false;
-    // These three variables create empty arrays in which to push underscore placeholders, right guesses, and wrong guesses
+    // These two variables create empty arrays in which to push underscore placeholders and wrong guesses
 let underScore = [];
 let wrongGuesses = [];
 

@@ -8,6 +8,7 @@ const winsText = document.getElementById('wins');
 const lossesText = document.getElementById('losses');
 const guessRemainingText = document.getElementById('guesses');
 const lettersGuessedText = document.getElementById('wrong-letters');
+const videoContainer = document.getElementById('video-container');
 
 // Global variables for the game
     // movieList contains words with  repeating letters
@@ -43,12 +44,10 @@ let wrongGuesses = [];
 // =============================================================================================
 
 function clearVideoIframe() {
-  const videoContainer = document.getElementById('video-container');
   videoContainer.innerHTML = '';
 }
 
 function insertVideoIframe(currentWord, availableIframes) {
-  const videoContainer = document.getElementById('video-container');
   videoContainer.insertAdjacentHTML('beforeend', availableIframes[currentWord]);
 }
 

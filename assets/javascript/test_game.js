@@ -47,7 +47,7 @@ function clearVideoIframe() {
   videoContainer.innerHTML = '';
 }
 
-function insertVideoIntoIframe(currentWord, availableIframes) {
+function insertVideoIframe(currentWord, availableIframes) {
   const videoContainer = document.getElementById('video-container');
   videoContainer.insertAdjacentHTML('beforeend', availableIframes[currentWord]);
 }
@@ -93,7 +93,7 @@ function setNewGameButtonState(disabled) {
 
 function handleWin(movieName) {
   // insert a new video for the specified movie
-  insertVideoIntoIframe(movieName, iFrames);
+  insertVideoIframe(movieName, iFrames);
   singleMovie.splice( singleMovie.indexOf(currentWord), 1 );
   console.log(singleMovie);
 

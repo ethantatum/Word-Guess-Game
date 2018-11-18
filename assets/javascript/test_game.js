@@ -15,21 +15,21 @@ const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', '
     // singleMovie contains words with no repeating letters
 const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM', 'FARGO', 'JAWS', 'FROZEN', 'GRAVITY', 'SNATCH'];
 
-// const iFrames = {
-//     'ALIENS': <iframe width="640" height="360" src="http://www.youtube.com/embed/ILYdzvSICes?rel=0&start=165&end=172&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'VERTIGO': <iframe width="640" height="360" src="http://www.youtube.com/embed/GjPCk494e5Q?rel=0&start=65&end=71&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'PSYCHO': <iframe width="640" height="360" src="http://www.youtube.com/embed/0WtDmbr9xyY?rel=0&start=50&end=60&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'CASINO': <iframe width="640" height="360" src="http://www.youtube.com/embed/aIPmu6bYZOs?rel=0&start=5&end=12&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'ROCKY': <iframe width="640" height="360" src="http://www.youtube.com/embed/_YYmfM2TfUA?rel=0&start=135&end=145&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'HAMLET': <iframe width="640" height="360" src="http://www.youtube.com/embed/SjuZq-8PUw0?rel=0&start=22&end=31&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'LABYRINTH': <iframe width="640" height="360" src="http://www.youtube.com/embed/1vcqMD5duiQ?rel=0&start=56&end=66&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'SCREAM': <iframe width="640" height="360" src="http://www.youtube.com/embed/LWxSBbBX4fs?rel=0&start=72&end=81&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'FARGO': <iframe width="640" height="360" src="http://www.youtube.com/embed/kPHbIyDTPHU?rel=0&start=9&end=22&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'JAWS': <iframe width="640" height="360" src="http://www.youtube.com/embed/2I91DJZKRxs?rel=0&start=15&end=36&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'FROZEN': <iframe width="640" height="360" src="http://www.youtube.com/embed/rnEB2F_v_cE?rel=0&start=4&end=15&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'GRAVITY': <iframe width="640" height="360" src="http://www.youtube.com/embed/rnEB2F_v_cE?rel=0&start=4&end=15&autoplay=1" frameborder="0" allowfullscreen></iframe>
-//     'SNATCH': <iframe width="640" height="360" src="http://www.youtube.com/embed/tGDO-9hfaiI?rel=0&start=29&end=46&autoplay=1" frameborder="0" allowfullscreen></iframe>
-// };
+const iFrames = {
+    'ALIENS': '<iframe width="640" height="360" src="http://www.youtube.com/embed/ILYdzvSICes?rel=0&start=165&end=172&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'VERTIGO': '<iframe width="640" height="360" src="http://www.youtube.com/embed/GjPCk494e5Q?rel=0&start=65&end=71&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'PSYCHO': '<iframe width="640" height="360" src="http://www.youtube.com/embed/0WtDmbr9xyY?rel=0&start=50&end=60&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'CASINO': '<iframe width="640" height="360" src="http://www.youtube.com/embed/aIPmu6bYZOs?rel=0&start=5&end=12&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'ROCKY': '<iframe width="640" height="360" src="http://www.youtube.com/embed/_YYmfM2TfUA?rel=0&start=135&end=145&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'HAMLET': '<iframe width="640" height="360" src="http://www.youtube.com/embed/SjuZq-8PUw0?rel=0&start=22&end=31&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'LABYRINTH': '<iframe width="640" height="360" src="http://www.youtube.com/embed/1vcqMD5duiQ?rel=0&start=56&end=66&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'SCREAM': '<iframe width="640" height="360" src="http://www.youtube.com/embed/LWxSBbBX4fs?rel=0&start=72&end=81&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'FARGO': '<iframe width="640" height="360" src="http://www.youtube.com/embed/kPHbIyDTPHU?rel=0&start=9&end=22&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'JAWS': '<iframe width="640" height="360" src="http://www.youtube.com/embed/2I91DJZKRxs?rel=0&start=15&end=36&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'FROZEN': '<iframe width="640" height="360" src="http://www.youtube.com/embed/rnEB2F_v_cE?rel=0&start=4&end=15&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'GRAVITY': '<iframe width="640" height="360" src="http://www.youtube.com/embed/C4pcg7bXgmU?rel=0&start=44&end=59&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    'SNATCH': '<iframe width="640" height="360" src="http://www.youtube.com/embed/tGDO-9hfaiI?rel=0&start=29&end=46&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+};
 
 let wins = 0;
 let losses = 0;
@@ -42,6 +42,18 @@ let wrongGuesses = [];
 // FUNCTIONS
 // =============================================================================================
 
+// This function empties the video-container element on our HTML
+function clearVideoIframe() {
+    const videoContainer = document.getElementById('video-container');
+    videoContainer.innerHTML = '';
+}
+
+// This function inserts the iFrame that matches our current word into the video-container element
+function insertVideoIntoIframe(currentWord, availableIframes) {
+    const videoContainer = document.getElementById('video-container');
+    videoContainer.insertAdjacentHTML('beforeend', availableIframes[currentWord]);
+}
+
 // Function to start or reset the game with baseline stats and a new word
 function newGame() {
     gameRunning = true;
@@ -53,12 +65,53 @@ function newGame() {
     // This generates a length of underscores based on the length of the chosen word
         for(i = 0; i < currentWord.length; i++) {
             underScore.push('_');
-        }  
+        } 
     // These write the game information to the HTML document
     currentGuessText.innerHTML = underScore.join(' ');
     guessRemainingText.innerHTML = remaining;
     lettersGuessedText.innerHTML = wrongGuesses.join(' ');
+
+    // Clears the old video from the video container element
+    clearVideoIframe();
+    setNewGameButtonText('Have fun!');
+    setNewGameButtonState(true);
 }
+
+function setNewGameButtonText(newText) {
+    newGameButton.innerHTML = newText;
+}
+
+// Forces the user to finish the game - it disables the button and changes the color by removing the bg-dark class
+function setNewGameButtonState(disabled) {
+    newGameButton.disabled = disabled;
+    if (disabled) {
+        newGameButton.classList.remove('bg-dark');
+    } else {
+    newGameButton.classList.add('bg-dark');
+    }
+}
+
+function handleWin(movieName) {
+    // Inserts a new video for the specified movie
+    insertVideoIntoIframe(movieName, iFrames);
+    singleMovie.splice(singleMovie.indexOf(currentWord), 1 );
+    console.log(singleMovie);
+     // change "Click here to play!" button text to "You win! Click here to play
+    // AGAIN!" so that you can let the user take their time to watch the movie
+    // clip (e.g., don't use the alert and don't trigger a new game right away)
+    setNewGameButtonText('You win! Click here to play AGAIN!');
+    setNewGameButtonState(false);
+    wins++;
+  }
+
+function handleLoss() {
+    alert('You lose!');
+    losses++;
+    setNewGameButtonText('LOL. You suck. Click to try again.');
+    setNewGameButtonState(false);
+}
+
+
 
 // Function to check if the user guess matches the current word
 document.onkeyup = function(eventGuess) {
@@ -69,17 +122,9 @@ document.onkeyup = function(eventGuess) {
             if(currentWord.indexOf(userGuess) > -1) {
                 underScore[currentWord.indexOf(userGuess)] = userGuess;
                 if(underScore.join("") === currentWord) {
-                    singleMovie.splice( singleMovie.indexOf(currentWord), 1 );
-                    console.log(singleMovie);
-                    alert('You win!');
-                    wins++;
-                    newGame();
-                    // Below from JJ on how to activate video clips on win by using an object
-                    // var iframe =document.getElementById(iframe);
-                    // iframe.setAttribute('src', 'alsdkjfalsdkjf;asdlfkja;sd')
-                    // obj[currentWord];
+                    handleWin(currentWord);
                 }
-            } 
+            }
             else {
                 if(wrongGuesses.indexOf(userGuess) === -1) {
                 wrongGuesses.push(userGuess);
@@ -88,9 +133,7 @@ document.onkeyup = function(eventGuess) {
             }
         
             if(remaining === 0) {
-                alert('You lose!');
-                losses++;
-                newGame();
+                handleLoss();
             }
             currentGuessText.innerHTML = underScore.join(' ');
             lettersGuessedText.innerHTML = wrongGuesses.join(' ');

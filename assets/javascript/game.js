@@ -8,6 +8,8 @@ const winsText = document.getElementById('wins');
 const lossesText = document.getElementById('losses');
 const guessRemainingText = document.getElementById('guesses');
 const lettersGuessedText = document.getElementById('wrong-letters');
+const videoContainer = document.getElementById('video-container');
+
 
 // Global variables for the game
     // singleMovie contains words with no repeating letters
@@ -48,13 +50,11 @@ allowScripts();
 
 // This function empties the video-container element on our HTML
 function clearVideoIframe() {
-    const videoContainer = document.getElementById('video-container');
     videoContainer.innerHTML = '';
 }
 
 // This function inserts the iFrame that matches our current word into the video-container element
-function insertVideoIntoIframe(currentWord, availableIframes) {
-    const videoContainer = document.getElementById('video-container');
+function insertVideoIframe(currentWord, availableIframes) {
     videoContainer.insertAdjacentHTML('beforeend', availableIframes[currentWord]);
 }
 
@@ -97,7 +97,7 @@ function setNewGameButtonState(disabled) {
 
 function handleWin(movieName) {
     // Inserts a new video for the specified movie
-    insertVideoIntoIframe(movieName, iFrames);
+    insertVideoIframe(movieName, iFrames);
     singleMovie.splice(singleMovie.indexOf(currentWord), 1 );
     console.log(singleMovie);
      // This lets the user see the entire word after they win and watch the video before choosing to play again
@@ -170,11 +170,4 @@ newGameButton.addEventListener('click', newGame);
 // REMAINING QUESTIONS/ISSUES
 // =================================================================
 
-// Got words to repeat but now need to initialize a final winning screen after all words guessed (also need to clean up code around usedWord)
-
-// Add instructions "Pick a letter" after New Game button is pressed (could be on same button)
-    // Once a letter is pressed, button is set to "Click to reset the game" (connect to gameRunning = true)
-
 // How can I allow for words with multiple letters that are the same?
-
-// How can I display the full correct word before the game resets?

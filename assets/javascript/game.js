@@ -10,8 +10,6 @@ const guessRemainingText = document.getElementById('guesses');
 const lettersGuessedText = document.getElementById('wrong-letters');
 
 // Global variables for the game
-    // movieList contains words with  repeating letters
-const movieList = ['GLADIATOR', 'HALLOWEEN', 'ALIENS', 'SPACEBALLS', 'AVATAR', 'CASABLANCA', 'DEADPOOL', 'PREDATOR', 'GHOSTBUSTERS', 'INCEPTION'];
     // singleMovie contains words with no repeating letters
 const singleMovie = ['ALIENS', 'VERTIGO', 'PSYCHO', 'CASINO', 'ROCKY', 'HAMLET', 'LABYRINTH', 'SCREAM', 'FARGO', 'JAWS', 'FROZEN', 'GRAVITY', 'SNATCH'];
 
@@ -41,6 +39,12 @@ let wrongGuesses = [];
 
 // FUNCTIONS
 // =============================================================================================
+
+// This function alerts the user to disable pop-ups and allow scripts to load for best experience
+function allowScripts() {
+    alert("Please disable pop-ups and allow outside scripts to load for best game experience!")
+}
+allowScripts();
 
 // This function empties the video-container element on our HTML
 function clearVideoIframe() {
@@ -73,7 +77,7 @@ function newGame() {
 
     // Clears the old video from the video container element
     clearVideoIframe();
-    setNewGameButtonText('Have fun!');
+    setNewGameButtonText('Guess any letter - and have fun!');
     setNewGameButtonState(true);
 }
 
@@ -96,10 +100,9 @@ function handleWin(movieName) {
     insertVideoIntoIframe(movieName, iFrames);
     singleMovie.splice(singleMovie.indexOf(currentWord), 1 );
     console.log(singleMovie);
-     // change "Click here to play!" button text to "You win! Click here to play
-    // AGAIN!" so that you can let the user take their time to watch the movie
-    // clip (e.g., don't use the alert and don't trigger a new game right away)
-    setNewGameButtonText('You win! Click here to play AGAIN!');
+     // This lets the user see the entire word after they win and watch the video before choosing to play again
+    allDone();
+    setNewGameButtonText('Movie Genius! Click here to play AGAIN!');
     setNewGameButtonState(false);
     wins++;
   }
@@ -107,8 +110,17 @@ function handleWin(movieName) {
 function handleLoss() {
     alert('You lose!');
     losses++;
-    setNewGameButtonText('LOL. You suck. Click to try again.');
+    wrongGuesses = [];
+    allDone();
+    setNewGameButtonText('Not a movie buff, huh? Click to try again.');
     setNewGameButtonState(false);
+    newGame();
+}
+
+function allDone() {
+    if(wins == 12 || losses == 12 || wins + losses ==12) {
+        setNewGameButtonText("That's all the words! Thanks for playing!");
+    }
 }
 
 

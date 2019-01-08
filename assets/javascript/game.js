@@ -65,9 +65,9 @@ function newGame() {
     underScore = [];
     wrongGuesses = [];
     // This creates a variable that pulls a random word from our word array
-    currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
+    let currentWord = singleMovie[Math.floor(Math.random() * singleMovie.length)];
     // This generates a length of underscores based on the length of the chosen word
-        for(i = 0; i < currentWord.length; i++) {
+        for(let i = 0; i < currentWord.length; i++) {
             underScore.push('_');
         } 
     // These write the game information to the HTML document

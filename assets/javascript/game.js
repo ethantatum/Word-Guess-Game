@@ -47,7 +47,7 @@ let currentWord;
 function allowScripts() {
     alert("Please disable pop-ups and allow outside scripts to load for best game experience!")
 }
-allowScripts();
+// allowScripts();
 
 // This function empties the video-container element on our HTML
 function clearVideoIframe() {

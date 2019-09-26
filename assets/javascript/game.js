@@ -43,12 +43,6 @@ let currentWord;
 // FUNCTIONS
 // =============================================================================================
 
-// This function alerts the user to disable pop-ups and allow scripts to load for best experience
-function allowScripts() {
-    alert("Please disable pop-ups and allow outside scripts to load for best game experience!")
-}
-// allowScripts();
-
 // This function empties the video-container element on our HTML
 function clearVideoIframe() {
     videoContainer.innerHTML = '';
@@ -108,18 +102,22 @@ function handleWin(movieName) {
     wins++;
   }
 
-function handleLoss() {
-    alert('You lose!');
-    losses++;
-    wrongGuesses = [];
-    allDone();
-    setNewGameButtonText('Not a movie buff, huh? Click to try again.');
-    setNewGameButtonState(false);
-    newGame();
+function handleLoss(movieName) {
+    // Inserts a new video for the specified movie
+    insertVideoIframe(movieName, iFrames);
+    singleMovie.splice(singleMovie.indexOf(currentWord), 1 );
+    console.log(singleMovie);
+     // This lets the user see the entire word after they win and watch the video before choosing to play again
+     allDone();
+     setNewGameButtonText('Not a movie buff, huh? Click to try again.');
+     setNewGameButtonState(false);
+     losses++;
+     wrongGuesses = [];
+    // newGame();
 }
 
 function allDone() {
-    if(wins == 12 || losses == 12 || wins + losses ==12) {
+    if(singleMovie.length === 0) {
         setNewGameButtonText("That's all the words! Thanks for playing!");
     }
 }
@@ -146,7 +144,7 @@ document.onkeyup = function(eventGuess) {
             }
         
             if(remaining === 0) {
-                handleLoss();
+                handleLoss(currentWord);
             }
             currentGuessText.innerHTML = underScore.join(' ');
             lettersGuessedText.innerHTML = wrongGuesses.join(' ');
